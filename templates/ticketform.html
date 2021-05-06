@@ -1,0 +1,59 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='ticketform.css') }}">
+
+<div class="ticket-main">
+    <h1>Ticket Submission Form</h1>
+    <div class="form-holder">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <label>Please select which type of ticket you would like to submit:</label><br><br>
+            {{ form.ticket_type(class="ticket-type") }}<br><br>
+            {{ form.ticket_type.label() }}
+            {% if form.ticket_type.errors %}
+                <div class="invalid">
+                    {% for error in form.ticket_type.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {{ form.discord_username.label() }}
+            {% if form.discord_username.errors %}
+                <div class="invalid">
+                    {% for error in form.discord_username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.discord_username(size=50, placeholder="PhysicsLegends#6877") }}<br><br><br>
+
+            {{ form.discord_username_against.label() }}
+            {% if form.discord_username_against.errors %}
+                <div class="invalid">
+                    {% for error in form.discord_username_against.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.discord_username_against(size=50, placeholder="PhysicsLegends#6877") }}<br><br><br>
+
+            {{ form.description.label() }}
+            <p>Please provide us with as much detail as you can.</p>
+            {% if form.description.errors %}
+                <div class="invalid">
+                    {% for error in form.description.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.description(class="comments", cols=50, rows=5)}}<br><br><br>
+
+            {{ form.submit(class="submit") }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

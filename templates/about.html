@@ -1,0 +1,83 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+
+<div class="about-main">
+    <h1>
+        Officers
+    </h1>
+    <div class="officers">
+            <div class="officercard" id="officer1">
+                <h2>
+                    Founder
+                </h2>
+                <h3>
+                    Founder desc
+                </h3>
+            </div>
+            <div class="officercard" id="officer2">
+                <h2>
+                    Admins
+                </h2>
+                <h3>
+                    Admins desc
+                </h3>
+            </div>
+            <div class="officercard" id="officer3">
+                <h2>
+                    Secretary 
+                </h2>
+                <h3>
+                    Secretary desc
+                </h3>
+            </div>
+            <div class="officercard" id="officer4">
+                <h2>
+                    Graphic Designer
+                </h2>
+                <h3>
+                    Graphic Designer desc
+                </h3>
+            </div>
+            <div class="officercard" id="officer5">
+                <h2>
+                    Moderators
+                </h2>
+                <h3>
+                    Moderators desc
+                </h3>
+            </div>
+    </div>
+    <h1>
+        Mission Statment
+    </h1>
+    <div class="mission">
+        <h3>
+            UCSB Physics Discord is dedicated to forming and maintaining an online platform that integrates all
+            aspects of the UCSB Physics undergraduate and graduate education into one cohesive online community.
+        </h3>
+    </div>
+    <h1>
+        Active Projects
+    </h1>
+    <div class="projects">
+        <div class="project" id="project1">
+            <h3>
+                Project 1
+            </h3>
+        </div>
+        <div class="project" id="project2">
+            <h3>
+                Project 2
+            </h3>
+        </div>
+        <div class="project" id="project3">
+            <h3>
+                Project 3
+            </h3>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+<div class="home-main">
+    <div class="welcome">
+        <h1>Welcome to UCSB Physics Discord</h1>
+    </div>
+
+    <div class="joinbutton">
+        <button class="join" onclick="location.href='https://discord.gg/PzPbSUm'" type-"button" target="_blank">Join Here!</button>
+    </div>
+
+    <div class="card">
+        <img class="image" id="image1" src="/static/images/courseimg.png" alt="Course Selection" width=200>
+        <h2 class="desc" id="desc1">
+            <p>For each physics course taught at UCSB we have a dedicated channel. Here you can talk to classmates, TAs, and LAs.</p> 
+        </h2>
+    </div>
+    
+    <div class="card">
+        <img class="image" id="image2" src="/static/images/announcementimg.png" alt="Announcments" width=200>
+        <h2 class="desc" id="desc2">
+            We also strive to bring important announcments to the physics community. Announcments can range from course updates, club events, department news, general UCSB news, etc.  
+        </h2>
+    </div>
+    
+    <div class="card">
+        <img class="image" id="image3" src="/static/images/resourcesimg.png" alt="Resources" width=200>
+        <h2 class="desc" id="desc3">
+            We also foster one of the primary resources for students to ask questions about the physics department, courses, or major. 
+            These questions can be answered almost immediately for any one of our active peers.
+        </h2>
+    </div>
+    
+    <div class="card">
+        <img class="image" id="image4" src="/static/images/growingcommunityimg.png" alt="Growing Community" width=200>
+        <h2 class="desc" id="desc4">
+            Since the start of this Discord Server we have been growing and evolving, we hope you can join us in creating a beautiful physics community here at UCSB Physics Discord. 
+        </h2>
+    </div>
+                
+</div>
+
+{% endblock content%}

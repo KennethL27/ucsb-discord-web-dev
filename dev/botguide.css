@@ -1,0 +1,28 @@
+.botguide-main {
+    background: blue;
+    display: block;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.botguide-main h1 {
+    margin-left: 5%;
+}
+
+.botguide {
+    background: red;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: grid;
+    padding: 1%;
+    grid-template-rows: 400px 400px 400px;
+    gap: 20px;
+}
+
+.botguide-card {
+    background: #2f3136;
+    text-align: center;
+    border-radius: 50px;
+}

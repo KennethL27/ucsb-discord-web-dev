@@ -1,0 +1,21 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='botguide.css') }}">
+
+        <div class="botguide-main">
+            <h1>Bot Guide</h1>
+            <div class="botguide">
+                <div class="botguide-card" id="botguide-card1">
+                    guide 1
+                </div>
+                <div class="botguide-card" id="botguide-card2">
+                    guide 2
+                </div>
+                <div class="botguide-card" id="botguide-card3">
+                    guide 3
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

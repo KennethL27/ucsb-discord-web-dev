@@ -1,0 +1,47 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='emojiform.css') }}">
+
+<div class="emoji-main">
+    <h1>Emoji Request Form</h1>
+    <div class="form-holder">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            {{ form.discord_username.label() }}
+            {% if form.discord_username.errors %}
+                <div class="invalid">
+                    {% for error in form.discord_username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.discord_username(size=50, placeholder="PhysicsLegends#6877") }}<br><br><br>
+
+            {{ form.description.label() }}
+            {% if form.description.errors %}
+                <div class="invalid">
+                    {% for error in form.description.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.description(class="comments", cols=50, rows=5)}}<br><br><br>
+
+            {{ form.image.label() }}
+            {% if form.image.errors %}
+                <div class="invalid">
+                    {% for error in form.image.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.image(class="comments")}}<br><br><br>            
+
+            {{ form.submit(class="submit") }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

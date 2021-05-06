@@ -1,0 +1,40 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='gettingstarted.css') }}">
+
+<div class="gettingstarted-main">
+    <h1>Getting Started</h1>
+    <div class="gettingstarted">
+        <h2>Role Selection</h2>
+        <div class="roleselection">
+            <div class="roleselection-card" id="roleselection-card1">
+                Year
+            </div>
+            <div class="roleselection-card" id="roleselection-card2">
+                Pronoun
+            </div>
+            <div class="roleselection-card" id="roleselection-card3">
+                Club
+            </div>
+            <div class="roleselection-card" id="roleselection-card4">
+                Courses
+            </div>
+        </div>
+        <h2>Guidelines</h2>
+        <div class="guidelines">
+            <div class="guidelines-card">
+                guidelines
+            </div>
+        </div>
+        <h2>Policy</h2>
+        <div class="policy">
+            <div class="policy-card">
+                policy
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

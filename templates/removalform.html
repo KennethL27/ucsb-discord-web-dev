@@ -1,0 +1,68 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='removalform.css') }}">
+
+<div class="removal-main">
+    <h1>Removal Form</h1>
+    <div class="form-holder">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <label>Please select which one(s) applies to you:</label><br><br>
+            {{ form.reason(class="multiple-select") }}
+            {{ form.reason.label(multiple=True) }}
+            {% if form.reason.errors %}
+                <div class="invalid">
+                    {% for error in form.reason.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br>
+
+            {{ form.other.label() }}
+            {% if form.other.errors %}
+                <div class="invalid">
+                    {% for error in form.other.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ form.other(class="comments") }}<br><br>
+
+            {{ form.email.label() }}
+            {% if form.email.errors %}
+                <div class="invalid">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.email(size=50) }}<br><br><br>
+
+            {{ form.discord_username.label() }}
+            {% if form.discord_username.errors %}
+                <div class="invalid">
+                    {% for error in form.discord_username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            {{ form.discord_username(size=50, placeholder="PhysicsLegends#6877") }}<br><br><br>
+
+            {{ form.comments.label() }}
+            {% if form.comments.errors %}
+                <div class="invalid">
+                    {% for error in form.comments.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+            <p>Please help us understand your departure so that we can make our community better. We really appreciate having you be apart of our community and we wish you the best!</p><br><br>
+            {{ form.comments(class="comments", cols=50, rows=5)}}<br><br><br>
+
+            {{ form.submit(class="submit") }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+.confirmation {
+    background: #003560;
+    text-align: center;
+    width: 50%;
+    height: 250px;
+    position: absolute;
+    margin-top: -700px;
+    margin-left: 25%;
+    border-radius: 50px;
+}
+
+.confirmation h1 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.forms-main {
+    opacity: 0.3;
+    pointer-events: none;
+}
