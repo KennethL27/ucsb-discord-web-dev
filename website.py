@@ -40,7 +40,7 @@ def verificationform():
     if form.validate_on_submit():
         flash('Thank you for your Verification', 'success')
         return redirect(url_for('forms'))
-    return render_template('verificationform.html', title = 'Verification', form = form)
+    return render_template('forms/verificationform.html', title = 'Verification', form = form)
 
 @app.route('/forms/removal', methods=['GET', 'POST'])
 def removalform():
@@ -48,7 +48,7 @@ def removalform():
     if form.validate_on_submit():
         flash('Thank you for your Removal Form', 'success')
         return redirect(url_for('forms'))
-    return render_template('removalform.html', title = 'Removal', form = form)
+    return render_template('forms/removalform.html', title = 'Removal', form = form)
 
 @app.route('/forms/emoji', methods=['GET', 'POST'])
 def emojiform():
@@ -56,7 +56,7 @@ def emojiform():
     if form.validate_on_submit():
         flash('Thank you for submitting an Emoji', 'success')
         return redirect(url_for('forms'))
-    return render_template('emojiform.html', title = 'Emoji', form = form)
+    return render_template('forms/emojiform.html', title = 'Emoji', form = form)
 
 @app.route('/forms/ticket', methods=['GET', 'POST'])
 def ticketform():
@@ -64,7 +64,7 @@ def ticketform():
     if form.validate_on_submit():
         flash('Thank you for submitting a Ticket', 'success')
         return redirect(url_for('forms'))
-    return render_template('ticketform.html', title = 'Ticket', form = form)
+    return render_template('forms/ticketform.html', title = 'Ticket', form = form)
 
 if __name__ == '__main__':
     app.run(debug = True)
