@@ -43,21 +43,27 @@
     margin-bottom: 1%;
     border-style: solid;
     border-radius: 100px;
-    border-color: #fdbf32;
+    border-color: #2f3136;
     background: #2f3136;
+    display: grid;
+    grid-template-rows: 50px 150px;
+    grid-template-columns: 300px 1200px;
+    grid-gap: 20px;
 }
 
-.image, .desc {
-    display: inline-flex;
+.image-holder {
+    margin-left: 60px;
+    margin-top: 50px;
+    height: 200px;
+    background: black;
+    grid-column: 1/2;
+    grid-row: 1/3;
 }
 
-.image {
-    float: left;
-    margin-left: 5%;
-    margin-top: 5%;
-}
-
-.desc {
-    width: 50%;
-    margin-top: 7%;
+.description {
+    text-align: center;
+    padding: 45px;
+    /* background: orange; */
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
