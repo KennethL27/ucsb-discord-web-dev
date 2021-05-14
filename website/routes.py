@@ -1,9 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import VerificationForm, RemovalForm, EmojiForm, TicketForm
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '174d7cc25e44491b940fe0c792640e9f'
+from flask import render_template, url_for, flash, redirect
+from website import app, db
+from website.forms import VerificationForm, RemovalForm, EmojiForm, TicketForm
+from website.models import Verify, Removal, Emoji, Ticket
 
 @app.route('/')
 def home():
@@ -38,6 +36,9 @@ def forms():
 def verificationform():
     form = VerificationForm()
     if form.validate_on_submit():
+        verify = Verify(type_student = form.user_option.data, email = form.email.data, full_name = form.full_name.data, username = form.discord_username.data)
+        db.session.add(verify)
+        db.session.commit()
         flash('Thank you for your Verification', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/verificationform.html', title = 'Verification', form = form)
@@ -65,6 +66,3 @@ def ticketform():
         flash('Thank you for submitting a Ticket', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/ticketform.html', title = 'Ticket', form = form)
-
-if __name__ == '__main__':
-    app.run(debug = True)
