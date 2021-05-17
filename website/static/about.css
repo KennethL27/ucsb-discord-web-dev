@@ -15,7 +15,7 @@
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
-    grid-template-columns: 305px 305px 305px 305px 305px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 325px 325px;
     height: 650px;
 }
@@ -26,6 +26,13 @@
     margin: 1% auto;
     text-align: center;
     border-radius: 50px;
+}
+
+.officer-image {
+    background: black;
+    width: 70%;
+    margin: auto;
+    height: 90px;
 }
 
 #officer1 {
@@ -71,7 +78,7 @@
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
-    grid-template-columns: 495px 495px 495px;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 300px;
     gap: 20px;
 }
