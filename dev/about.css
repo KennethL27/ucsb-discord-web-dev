@@ -100,3 +100,41 @@
 #project3 {
     grid-column: 3/4;
 }
+
+@media screen and (max-width: 1024px) {
+    * {
+        font-size: 115%;
+    }
+
+    .officers {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-left: 10%;
+        margin-right: 0%;
+        display: grid;
+        grid-template-columns: 33% 1fr 1fr;
+        grid-template-rows: 325px 325px 325px;
+        height: 1000px;
+    }
+
+    #officer1 {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    #officer2 {
+        grid-row: 1/2;
+        grid-column: 3/4;
+    }
+    #officer3 {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+    #officer4 {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    #officer5 {
+        grid-row: 3/4;
+        grid-column: 3/4;
+    }    
+}

@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from website import app, db
 from website.forms import VerificationForm, RemovalForm, EmojiForm, TicketForm
 from website.models import Verify, Removal, Emoji, Ticket
@@ -47,6 +47,10 @@ def verificationform():
 def removalform():
     form = RemovalForm()
     if form.validate_on_submit():
+        removal = Removal(reason = str(form.reason.data), other_reason = form.other.data, email = form.email.data, username = form.discord_username.data, comments = form.comments.data)
+        db.session.add(removal)
+        db.session.query(Verify).filter_by(username = form.discord_username.data).delete()
+        db.session.commit()
         flash('Thank you for your Removal Form', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/removalform.html', title = 'Removal', form = form)
@@ -55,6 +59,10 @@ def removalform():
 def emojiform():
     form = EmojiForm()
     if form.validate_on_submit():
+        file = request.files['image']
+        emoji = Emoji(username = form.discord_username.data, description = form.description.data, emoji_image = file.read())
+        db.session.add(emoji)
+        db.session.commit()
         flash('Thank you for submitting an Emoji', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/emojiform.html', title = 'Emoji', form = form)
@@ -63,6 +71,9 @@ def emojiform():
 def ticketform():
     form = TicketForm()
     if form.validate_on_submit():
+        ticket = Ticket(type_ticket = form.ticket_type.data, username = form.discord_username.data, against_username = form.discord_username_against.data, issue = form.description.data)
+        db.session.add(ticket)
+        db.session.commit()
         flash('Thank you for submitting a Ticket', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/ticketform.html', title = 'Ticket', form = form)
