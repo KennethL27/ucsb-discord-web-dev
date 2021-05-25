@@ -1,5 +1,6 @@
-from website import db
+from website import db, login_manager
 from datetime import datetime
+from flask_login import UserMixin
 
 class Verify(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -41,6 +42,19 @@ class Ticket(db.Model):
     against_username = db.Column(db.String(32), nullable = False)
     issue = db.Column(db.Text, nullable = True)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+
+    def __repr__(self):
+        return f"User('{self.username}')"
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Admin.query.get(int(user_id))
+
+class Admin(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.Text, nullable = False)
+    password = db.Column(db.String(120), nullable = False)
+    date_accessed = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
         return f"User('{self.username}')"

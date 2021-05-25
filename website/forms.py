@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, RadioField, SubmitField, SelectMultipleField, TextAreaField, FileField, widgets, ValidationError
-from wtforms.validators import DataRequired, Email, Optional
-from website.models import Verify
+from wtforms.fields.core import BooleanField
+from wtforms.fields.simple import PasswordField
+from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
+from website.models import Verify, Admin
 
 class MultipleCheckboxField(SelectMultipleField):
     widget = widgets.ListWidget(prefix_label=False)
@@ -98,3 +100,7 @@ class TicketForm(FlaskForm):
         if not against_username:
             raise ValidationError('This username is not in our system.')
 
+class AdminSignin(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Sign In')

@@ -1,0 +1,28 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='admin_home.css') }}">
+
+<div class="admin-home-main">
+    <h1>Verification Form Responses</h1>
+    <div class="logout">
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <div class="info" id="verify">
+        verify
+    </div>
+    <h1>Removal Form Responses</h1>
+    <div class="info" id="remove">
+        remove
+    </div>
+    <h1>Emoji Request Form Responses</h1>
+    <div class="info" id="emoji">
+        emojis
+    </div>
+    <h1>Ticket Submission Form Responses</h1>
+    <div class="info" id="ticket">
+        tickets
+    </div>
+</div>
+
+{% endblock %}

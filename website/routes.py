@@ -1,7 +1,8 @@
 from flask import render_template, url_for, flash, redirect, request
-from website import app, db
-from website.forms import VerificationForm, RemovalForm, EmojiForm, TicketForm
-from website.models import Verify, Removal, Emoji, Ticket
+from website import app, db, bcrypt
+from website.forms import VerificationForm, RemovalForm, EmojiForm, TicketForm, AdminSignin
+from website.models import Verify, Removal, Emoji, Ticket, Admin
+from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
 def home():
@@ -77,3 +78,29 @@ def ticketform():
         flash('Thank you for submitting a Ticket', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/ticketform.html', title = 'Ticket', form = form)
+
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+    if current_user.is_authenticated:
+        return redirect(url_for('admin_home'))
+    form = AdminSignin()
+    if form.validate_on_submit():
+        user = Admin.query.filter_by(username = form.username.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('admin_home'))
+        else:
+            flash('Login Unsuccessful, Username or Password was incorrect')
+    return render_template('admin/admin_sign_in.html', title = 'ADMIN', form = form)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+@app.route('/admin/home', methods=['GET', 'POST'])
+@login_required
+def admin_home():
+    print('hello')
+    return render_template('admin/admin_home.html', title = 'ADMIN | HOME')

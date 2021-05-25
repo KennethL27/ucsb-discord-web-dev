@@ -1,0 +1,37 @@
+.admin-main {
+    display: grid;
+    width: 98%;
+    margin-top: 5%;
+    padding: 1%;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.admin-main h1 {
+    margin-left: 5%;
+}
+
+.description {
+    text-align: center;
+    margin: auto;
+}
+
+.sign-in {
+    background: #2f3136;
+    text-align: center;
+    border-radius: 50px;
+    width: 40%;
+    margin: auto;
+}
+
+form {
+    margin: auto;
+    padding: 50px;
+}
+
+form input {
+    padding: 10px;
+    background-color: #40444b;
+    border-radius: 10px;
+    border: 2px solid #40444b; 
+}
