@@ -2,6 +2,7 @@ from flask import render_template, url_for, flash, redirect, request
 from website import app, db, bcrypt
 from website.forms import VerificationForm, RemovalForm, EmojiForm, TicketForm, AdminSignin
 from website.models import Verify, Removal, Emoji, Ticket, Admin
+from website.reciept.email_sender import EmailReciept
 from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
@@ -37,6 +38,10 @@ def forms():
 def verificationform():
     form = VerificationForm()
     if form.validate_on_submit():
+        email_response = EmailReciept(form.user_option.data, form.email.data, form.full_name.data, form.discord_username.data)
+        if email_response:
+            flash('Uh oh! That email did not work. Please make sure your email is correct.')
+            return render_template('forms/verificationform.html', title = 'Verification', form = form)
         verify = Verify(type_student = form.user_option.data, email = form.email.data, full_name = form.full_name.data, username = form.discord_username.data)
         db.session.add(verify)
         db.session.commit()
