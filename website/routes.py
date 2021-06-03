@@ -38,13 +38,11 @@ def forms():
 def verificationform():
     form = VerificationForm()
     if form.validate_on_submit():
-        email_response = EmailReciept(form.user_option.data, form.email.data, form.full_name.data, form.discord_username.data)
-        if email_response:
-            flash('Uh oh! That email did not work. Please make sure your email is correct.')
-            return render_template('forms/verificationform.html', title = 'Verification', form = form)
-        verify = Verify(type_student = form.user_option.data, email = form.email.data, full_name = form.full_name.data, username = form.discord_username.data)
+        verify = Verify(type_student = form.user_option.data, email = form.email.data, full_name = form.full_name.data, username = form.discord_username.data, isreciept = form.isreciept.data)
         db.session.add(verify)
         db.session.commit()
+        if form.isreciept.data:
+            EmailReciept(form.user_option.data, form.email.data, form.full_name.data, form.discord_username.data)
         flash('Thank you for your Verification', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/verificationform.html', title = 'Verification', form = form)
@@ -109,3 +107,7 @@ def logout():
 def admin_home():
     print('hello')
     return render_template('admin/admin_home.html', title = 'ADMIN | HOME')
+
+@app.route('/test')
+def test():
+    return render_template('reciept/verification_email.html', type_student = 'new', email = 'kenneth.austin', name = 'kenneth', username = 'physicslegends')

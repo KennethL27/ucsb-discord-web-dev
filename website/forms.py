@@ -4,6 +4,7 @@ from wtforms.fields.core import BooleanField
 from wtforms.fields.simple import PasswordField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional
 from website.models import Verify, Admin
+from website.reciept.email_sender import verify_email
 
 class MultipleCheckboxField(SelectMultipleField):
     widget = widgets.ListWidget(prefix_label=False)
@@ -14,6 +15,7 @@ class VerificationForm(FlaskForm):
     email = StringField('Email Address', validators = [DataRequired(), Email()])
     full_name = StringField('Full Name', validators = [DataRequired()])
     discord_username = StringField('Discord Username and #', validators = [DataRequired()])
+    isreciept = BooleanField('Send a copy of your responses')
     submit = SubmitField('Submit')
 
     email_check = ''
@@ -38,6 +40,10 @@ class VerificationForm(FlaskForm):
         user_email = Verify.query.filter_by(email = email.data).first()
         if user_email:
             raise ValidationError('That email has already been used.')
+
+        # is_email = verify_email(email.data)
+        # if not is_email:
+        #     raise ValidationError('Uh oh! That email did not work. Please make sure your email is correct.')
 
 class RemovalForm(FlaskForm):
     reason = MultipleCheckboxField('', _prefix="reason", choices=[('1', 'Graduating and no longer need the Server'), ('2', 'Switching Majors'), ('3', 'This community is not for me')])

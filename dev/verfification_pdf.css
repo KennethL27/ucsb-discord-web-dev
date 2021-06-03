@@ -1,0 +1,39 @@
+* {
+    margin: 5px;
+    padding: 10px;
+    /* background: #36393f; */
+    /* color: white; */
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+/* .surrounding {
+    background: #36393f;
+} */
+
+.header, .main, .footer {
+    /* background: #2f3136; */
+    text-align: center;
+}
+
+h1, h2 {
+    color: #fdbf32;
+}
+
+.user-input {
+    color: #003560;
+}
+
+input {
+    padding: 10px;
+    /* background-color: #40444b; */
+    border-radius: 10px;
+    border: 2px solid #40444b; 
+
+}
+
+::placeholder {
+    /* color: white; */
+    color: #003560;
+    opacity: 1;
+}

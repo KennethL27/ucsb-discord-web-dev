@@ -1,11 +1,12 @@
-from website.reciept.pdf_builder import render_email
+from website.reciept.pdf_builder import build_email
 import smtplib, requests
 from email.message import EmailMessage
+import os
 
-EMAIL_ADDRESS = 'D'
-EMAIL_PASSWORD = 'SD'
+EMAIL_ADDRESS = os.environ.get('EMAIL_ADD')
+EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
-def email_check(email):
+def verify_email(email):
     response = requests.get('https://isitarealemail.com/api/email/validate', params = {'email': email})
     status = response.json()['status']
     if status == 'invalid':
@@ -14,10 +15,8 @@ def email_check(email):
         return True
 
 def EmailReciept(type_student, email, name, username):
-    if email_check(email) == False:
-        return True
-    pdf, email_template = render_email(type_student, name, username)
-    filename = f'UCSB Physics Discord Verification: {name}'
+    pdf, email_template = build_email(type_student, email, name, username)
+    filename = f'UCSB Physics Discord Verification: {name}.pdf'
     email_message = EmailMessage()
     if type_student == 'Gaucho':
         email_message['Subject'] = 'Welcome Gaucho!'

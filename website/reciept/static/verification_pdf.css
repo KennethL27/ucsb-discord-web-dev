@@ -1,0 +1,30 @@
+* {
+    margin: 5px;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+.header, .main, .footer {
+    text-align: center;
+}
+
+h1, h2 {
+    color: #fdbf32;
+}
+
+.user-input {
+    color: #003560;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #40444b; 
+
+}
+
+::placeholder {
+    color: #003560;
+    opacity: 1;
+}

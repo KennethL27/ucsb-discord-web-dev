@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='verification_email.css') }}">
+    <link rel="stylesheet" href="verification_email.css">
+</head>
+
+<body>
+    <div class="surrounding">
+    <div class="header">
+        <h1>UCSB Physics Discord Verfication Reciept</h1>
+    </div>
+    <div class="main">
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Thank you {{ name }} (aka {{ username }}) for completing the Verfication Form. You can view your responses here.</p>
+        </div>
+        <div class="answer">
+            <h2>Verfication Form</h2>
+            <div class="respone1">
+                <p>Please select which one applies to you:</p>
+                <p>{{ type_of_student }}</p>
+            </div>
+            <div class="respone2">
+                <p>Email Address</p>
+                <input type="text" placeholder="{{ email }}" disabled>
+            </div>
+            <div class="respone3">
+                <p>Full Name</p>
+                <input type="text" placeholder="{{ name }}" disabled>
+            </div>
+            <div class="respone4">
+                <p>Discord Username and #</p>
+                <input type="text" placeholder="{{ username }}" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h5>If you did not sign up please submit a ticket here: <a href="www.discord/forms/ticket">Ticket Submission Form</a></h5>
+        <a href="https://discord.gg/PzPbSUm">Invite Link</a>
+        <div class="youtube">
+            <img src="" alt="Youtube">
+            <img src="" alt="Twitch">
+            <img src="" alt="Email">
+        </div>
+    </div>
+    </div>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+
+<head>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='verification_email.css') }}"> -->
+    <!-- <link rel="stylesheet" href="verification_email.css"> -->
+    
+</head>
+
+<body style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+    <div class="surrounding" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; background: #36393f;">
+    <div class="header" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; background: #2f3136; text-align: center;">
+        <h1 style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">UCSB Physics Discord Verfication Reciept</h1>
+    </div>
+    <div class="main" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; background: #2f3136; text-align: center;">
+        <div class="summary" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+            <h2 style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">Summary</h2>
+            <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Thank you {{ name }} (aka {{ username }}) for completing the Verfication Form. You can view your responses here.</p>
+        </div>
+        <div class="answer" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+            <h2 style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">Verfication Form</h2>
+            <div class="respone1" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Please select which one applies to you:</p>
+                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">{{ type_of_student }}</p>
+            </div>
+            <div class="respone2" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Email Address</p>
+                <input type="text" placeholder="{{ email }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
+            </div>
+            <div class="respone3" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Full Name</p>
+                <input type="text" placeholder="{{ name }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
+            </div>
+            <div class="respone4" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Discord Username and #</p>
+                <input type="text" placeholder="{{ username }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; background: #2f3136; text-align: center;">
+        <h5 style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">If you did not sign up please submit a ticket here: <a href="www.discord/forms/ticket" style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">Ticket Submission Form</a></h5>
+        <a href="https://discord.gg/PzPbSUm" style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">Invite Link</a>
+        <div class="youtube" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+            <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="Youtube" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+            <img src="{{ url_for('static', filename='images/twitch.png') }}" alt="Twitch" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+            <img src="{{ url_for('static', filename='images/Email.png') }}" alt="Email" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -8,6 +8,7 @@ class Verify(db.Model):
     email = db.Column(db.String(120), nullable = False)
     full_name = db.Column(db.String(40), nullable = False)
     username = db.Column(db.String(32), nullable = False)
+    isreciept = db.Column(db.Boolean(), nullable = False, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):

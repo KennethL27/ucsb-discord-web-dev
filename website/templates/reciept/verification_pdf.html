@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        * {
+            margin: 5px;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        .header, .main, .footer {
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #fdbf32;
+        }
+
+        .user-input {
+            color: #003560;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #40444b; 
+
+        }
+
+        ::placeholder {
+            color: #003560;
+            opacity: 1;
+        }
+    </style>
+
+    <body>
+
+        <div class="surrounding">
+            <div class="header">
+                <h1>UCSB Physics Discord Verfication Reciept</h1>
+            </div>
+            <div class="main">
+                <div class="summary">
+                    <h2>Summary</h2>
+                    <p>Thank you <span class="user-input">{{ name }}</span> (aka <span class="user-input">{{ username }}</span>) for completing the Verfication Form. You can view your responses here.</p>
+                </div>
+                <div class="answer">
+                    <h2>Verfication Form</h2>
+                    <div class="respone1">
+                        <p>Please select which one applies to you:</p>
+                        <p><span class="user-input">{{ type_of_student }}</span></p>
+                    </div>
+                    <div class="respone2">
+                        <p>Email Address</p>
+                        <input type="text" placeholder="{{ email }}" disabled>
+                    </div>
+                    <div class="respone3">
+                        <p>Full Name</p>
+                        <input type="text" placeholder="{{ name }}" disabled>
+                    </div>
+                    <div class="respone4">
+                        <p>Discord Username and #</p>
+                        <input type="text" placeholder="{{ username }}" disabled>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </body>
+
+</html>
