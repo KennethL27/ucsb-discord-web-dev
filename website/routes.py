@@ -105,9 +105,4 @@ def logout():
 @app.route('/admin/home', methods=['GET', 'POST'])
 @login_required
 def admin_home():
-    print('hello')
     return render_template('admin/admin_home.html', title = 'ADMIN | HOME')
-
-@app.route('/test')
-def test():
-    return render_template('reciept/verification_email.html', type_student = 'new', email = 'kenneth.austin', name = 'kenneth', username = 'physicslegends')

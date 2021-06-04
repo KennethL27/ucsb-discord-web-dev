@@ -36,14 +36,17 @@ class VerificationForm(FlaskForm):
         if email_check == 'Current UCSB Student or UCSB Faculty':
             if ('ucsb.edu' or 'umail.ucsb.edu') not in email.data:
                 raise ValidationError('For UCSB Students and Faculty please use a valid ucsb email.')
+        else:
+            if ('ucsb.edu' or 'umail.ucsb.edu') in email.data:
+                raise ValidationError('For UCSB Students and Faculty please select "Current UCSB Student or UCSB Faculty".')
         
         user_email = Verify.query.filter_by(email = email.data).first()
         if user_email:
             raise ValidationError('That email has already been used.')
 
-        # is_email = verify_email(email.data)
-        # if not is_email:
-        #     raise ValidationError('Uh oh! That email did not work. Please make sure your email is correct.')
+        is_email = verify_email(email.data)
+        if not is_email:
+            raise ValidationError('Uh oh! That email did not work. Please make sure your email is correct.')
 
 class RemovalForm(FlaskForm):
     reason = MultipleCheckboxField('', _prefix="reason", choices=[('1', 'Graduating and no longer need the Server'), ('2', 'Switching Majors'), ('3', 'This community is not for me')])
