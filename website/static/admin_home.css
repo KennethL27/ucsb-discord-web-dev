@@ -12,12 +12,12 @@
 }
 
 .logout {
-    position: fixed;
+    position: absolute;
     right: 15%;
     
 }
 
-.logout a {
+.logout a, .button {
     color: #fdbf32;
 }
 
@@ -28,8 +28,37 @@
 .info {
     background: #2f3136;
     text-align: center;
-    border-radius: 50px;
     width: 80%;
     height: 500px;
     margin: auto;
+    overflow: scroll;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: #fdbf32;
+}
+
+tr:nth-child(even) {
+    background-color: #003560;
+}
+
+tr:nth-child(odd) {
+    background-color: #9999A1;
+}
+
+.button-house {
+    margin-left: 80%;
 }

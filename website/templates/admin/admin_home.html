@@ -6,23 +6,109 @@
 <div class="admin-home-main">
     <h1>Verification Form Responses</h1>
     <div class="logout">
-        <a href="{{ url_for('logout') }}">Logout</a>
+        <h3><a href="{{ url_for('logout') }}">Logout</a></h3>
     </div>
     <div class="info" id="verify">
-        verify
+        <table>
+            <tr>
+                <th></th>
+                <th>Type of Student</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>Is Reciept</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for user in verify_data %}
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>{{  user.type_student  }}</td>
+                    <td>{{  user.email  }}</td>
+                    <td>{{  user.full_name  }}</td>
+                    <td>{{  user.username  }}</td>
+                    <td>{{  user.isreciept  }}</td>
+                    <td>{{  user.date_created  }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
+    <h3 class="button-house"><pre><a href="" class="button">Edit</a>    <a href="" class="button">Delete</a></pre></h3>
     <h1>Removal Form Responses</h1>
     <div class="info" id="remove">
-        remove
+        <table>
+            <tr>
+                <th></th>
+                <th>Reason</th>
+                <th>Other Reason</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Comments</th>
+                <th>Is Reciept</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for user in removal_data %}
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>{{  user.reason  }}</td>
+                    <td>{{  user.other_reason  }}</td>
+                    <td>{{  user.email  }}</td>
+                    <td>{{  user.username  }}</td>
+                    <td>{{  user.comments  }}</td>
+                    <td>{{  user.isreciept  }}</td>
+                    <td>{{  user.date_created  }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
+    <h3 class="button-house"><pre><a href="" class="button">Edit</a>    <a href="" class="button">Delete</a></pre></h3>
     <h1>Emoji Request Form Responses</h1>
     <div class="info" id="emoji">
-        emojis
+        <table>
+            <tr>
+                <th></th>
+                <th>Username</th>
+                <th>Description</th>
+                <th>Emoji Image</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for user in Emoji_data %}
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>{{  user.username  }}</td>
+                    <td>{{  user.description  }}</td>
+                    <td><a href="{{ url_for('get_emoji_image', id=loop.index) }}" target="_blank">{{ user.emoji_image_name }}</a></td>
+                    <td>{{  user.date_created  }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
+    <h3 class="button-house"><pre><a href="" class="button">Edit</a>    <a href="" class="button">Delete</a></pre></h3>
     <h1>Ticket Submission Form Responses</h1>
     <div class="info" id="ticket">
-        tickets
+        <table>
+            <tr>
+                <th></th>
+                <th>Ticket Type</th>
+                <th>Username</th>
+                <th>Ticketed Username</th>
+                <th>Issue</th>
+                <th>Is Reciept</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for user in ticket_data %}
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>{{  user.type_ticket  }}</td>
+                    <td>{{  user.username  }}</td>
+                    <td>{{  user.against_username  }}</td>
+                    <td>{{  user.issue  }}</td>
+                    <td>{{  user.isreciept  }}</td>
+                    <td>{{  user.date_created  }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
+    <h3 class="button-house"><pre><a href="" class="button">Edit</a>    <a href="" class="button">Delete</a></pre></h3>
 </div>
 
 {% endblock %}

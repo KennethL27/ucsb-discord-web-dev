@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed
 from wtforms import StringField, RadioField, SubmitField, SelectMultipleField, TextAreaField, FileField, widgets, ValidationError
 from wtforms.fields.core import BooleanField
 from wtforms.fields.simple import PasswordField
@@ -54,6 +55,7 @@ class RemovalForm(FlaskForm):
     email = StringField('Email Address', validators = [DataRequired(), Email()])
     discord_username = StringField('Discord Username and #', validators = [DataRequired()])
     comments = TextAreaField('Comments or Concerns:')
+    isreciept = BooleanField('Send a copy of your responses')
     submit = SubmitField('Submit')
 
     # Need to check if email and username is already in the database
@@ -70,7 +72,7 @@ class RemovalForm(FlaskForm):
 class EmojiForm(FlaskForm):
     discord_username = StringField('Discord Username and #', validators = [DataRequired()])
     description = TextAreaField('Please provide a detail description if you do not have an image to upload:', validators = [Optional()])
-    image = FileField('If you already have a image you would like to see become an emoji in the Server please upload it here:', validators = [Optional()])
+    image = FileField('If you already have a image you would like to see become an emoji in the Server please upload it here:', validators = [Optional(), FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Submit')
 
     # need to check if username is already in the database
@@ -94,8 +96,9 @@ class TicketForm(FlaskForm):
     ticket_type = RadioField('', validators = [DataRequired()],
                              choices = ["Ticket another user", "Ticket the functionality of a Bot", "Ticket a staff member"])
     discord_username = StringField('Discord Username and #', validators = [DataRequired()])
-    discord_username_against = StringField('If applicable please provide the Discord Username and # of the user being ticked against', validators = [DataRequired()])
+    discord_username_against = StringField('If applicable please provide the Discord Username and # of the user being ticked against')
     description = TextAreaField('Issue:')
+    isreciept = BooleanField('Send a copy of your responses')
     submit = SubmitField('Submit')
 
     # need to check if both usernames are in the database
@@ -105,9 +108,10 @@ class TicketForm(FlaskForm):
             raise ValidationError('This username is not in our system.')
         
     def validate_discord_username_against(self, discord_username_against):
-        against_username = Verify.query.filter_by(username = discord_username_against.data).first()
-        if not against_username:
-            raise ValidationError('This username is not in our system.')
+        if discord_username_against.data:
+            against_username = Verify.query.filter_by(username = discord_username_against.data).first()
+            if not against_username:
+                raise ValidationError('This username is not in our system.')
 
 class AdminSignin(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

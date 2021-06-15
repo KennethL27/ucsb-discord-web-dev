@@ -43,25 +43,25 @@
             <div class="main">
                 <div class="summary">
                     <h2>Summary</h2>
-                    <p>Thank you <span class="user-input">{{ name }}</span> (aka <span class="user-input">{{ username }}</span>) for completing the Verfication Form. You can view your responses here.</p>
+                    <p>Thank you <span class="user-input">{{ values["name"] }}</span> (aka <span class="user-input">{{ values["username"] }}</span>) for completing the Verfication Form. You can view your responses here.</p>
                 </div>
                 <div class="answer">
                     <h2>Verfication Form</h2>
                     <div class="respone1">
                         <p>Please select which one applies to you:</p>
-                        <p><span class="user-input">{{ type_student }}</span></p>
+                        <p><span class="user-input">{{ values["option"] }}</span></p>
                     </div>
                     <div class="respone2">
                         <p>Email Address</p>
-                        <input type="text" size="40" value="{{ email }}" disabled>
+                        <input type="text" size="40" value="{{ values['email'] }}" disabled>
                     </div>
                     <div class="respone3">
                         <p>Full Name</p>
-                        <input type="text" size="40" value="{{ name }}" disabled>
+                        <input type="text" size="40" value="{{ values['name'] }}" disabled>
                     </div>
                     <div class="respone4">
                         <p>Discord Username and #</p>
-                        <input type="text" size="40" value="{{ username }}" disabled>
+                        <input type="text" size="40" value="{{ values['username'] }}" disabled>
                     </div>
                 </div>
             </div>

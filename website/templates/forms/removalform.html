@@ -60,6 +60,16 @@
             <p>Please help us understand your departure so that we can make our community better. We really appreciate having you be apart of our community and we wish you the best!</p><br><br>
             {{ form.comments(class="comments", cols=50, rows=5)}}<br><br><br>
 
+            {{ form.isreciept() }}
+            {{ form.isreciept.label() }}
+            {% if form.isreciept.errors %}
+                <div class="invalid">
+                    {% for error in form.isreciept.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+
             {{ form.submit(class="submit") }}
         </form>
     </div>

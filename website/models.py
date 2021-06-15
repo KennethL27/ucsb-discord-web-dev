@@ -21,6 +21,7 @@ class Removal(db.Model):
     email = db.Column(db.String(120), nullable = False)
     username = db.Column(db.String(32), nullable = False)
     comments = db.Column(db.Text, nullable = True)
+    isreciept = db.Column(db.Boolean(), nullable = False, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
@@ -30,7 +31,9 @@ class Emoji(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(32), nullable = False)
     description = db.Column(db.Text, nullable = True)
-    emoji_image = db.Column(db.LargeBinary, nullable = True)
+    emoji_image = db.Column(db.Text, nullable = True)
+    emoji_image_name = db.Column(db.Text, nullable = True)
+    emoji_image_type = db.Column(db.Text, nullable = True)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
@@ -42,6 +45,7 @@ class Ticket(db.Model):
     username = db.Column(db.String(32), nullable = False)
     against_username = db.Column(db.String(32), nullable = False)
     issue = db.Column(db.Text, nullable = True)
+    isreciept = db.Column(db.Boolean(), nullable = False, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):

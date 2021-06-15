@@ -51,6 +51,16 @@
             {% endif %}<br><br>
             {{ form.description(class="comments", cols=50, rows=5)}}<br><br><br>
 
+            {{ form.isreciept() }}
+            {{ form.isreciept.label() }}
+            {% if form.isreciept.errors %}
+                <div class="invalid">
+                    {% for error in form.isreciept.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}<br><br>
+
             {{ form.submit(class="submit") }}
         </form>
     </div>

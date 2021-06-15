@@ -14,10 +14,9 @@
 .form-holder {
     background: #2f3136;
     text-align: center;
-    height: 800px;
     border-radius: 50px;
     width: 50%;
-    margin-left: 25%;
+    margin: auto;
 }
 
 form {

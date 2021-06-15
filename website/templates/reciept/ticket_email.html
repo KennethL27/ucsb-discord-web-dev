@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html>
+
+    <style>
+        * {
+            margin: 5px;
+            padding: 10px;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        .surrounding {
+            background: #36393f;
+        }
+
+        .header, .main, .footer {
+            background: #2f3136;
+            text-align: center;
+        }
+
+        h1, h2, a {
+            color: #fdbf32;
+        }
+
+        input {
+            padding: 10px;
+            background-color: #40444b;
+            border-radius: 10px;
+            border: 2px solid #40444b; 
+
+        }
+    </style>
+
+    <body>
+        <div class="surrounding">
+            <div class="header">
+                <h1>UCSB Physics Discord Ticket Reciept</h1>
+            </div>
+            <div class="main">
+                <div class="summary">
+                    <h2>Summary</h2>
+                    <p>Thank you for submitting a ticket. We will take action if necessary.</p>
+                </div>
+            <div class="answers">
+                <h2>Ticket Form</h2>
+                <p>Please select which type of ticket you would like to submit:</p>
+                <p>{{ values['ticket_type'] }}</p><br><br>
+    
+                <p>Discord Username and #</p>
+                <input type="email" value="{{ values['username'] }}" disabled size=60><br><br><br>
+                
+                <p>If applicable please provide the Discord Username and # of the user being ticked against</p>
+                <input type="text" value="{{ values['username2'] }}" disabled size=60><br><br><br>
+    
+                <p>Issue:</p>
+                <p>Please provide us with as much detail as you can.</p><br>
+                <p>{{ values["issue"] }}</p>
+            </div>
+            </div> 
+            <div class="footer">
+                <h5>If you did not sign up please submit a ticket here: <a href="/forms/ticket">Ticket Submission Form</a></h5>
+                <h3>Invite Link:</h3><a href="https://discord.gg/PzPbSUm">https://discord.gg/PzPbSUm</a>
+                <div class="youtube">
+                    <a href="https://www.youtube.com/channel/UCZ_4uFMgAPYgAkyEWzteMOg">
+                        <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="Youtube" width="100" height="100">
+                    </a>
+                    <a href="https://www.twitch.tv/ucsbphysicsdiscord">
+                        <img src="{{ url_for('static', filename='images/twitch.png') }}" alt="Twitch" width="100" height="100">
+                    </a>
+                    <a href="physics-discord@ucsb.edu">
+                        <img src="{{ url_for('static', filename='images/Email.png') }}" alt="Email" width="100" height="100">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+
+    
+
+    <body style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+        <div class="surrounding" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #36393f;">
+            <div class="header" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #2f3136;text-align: center;">
+                <h1 style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">UCSB Physics Discord Ticket Reciept</h1>
+            </div>
+            <div class="main" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #2f3136;text-align: center;">
+                <div class="summary" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    <h2 style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">Summary</h2>
+                    <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Thank you for submitting a ticket. We will take action if necessary.</p>
+                </div>
+            <div class="answers" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                <h2 style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">Ticket Form</h2>
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Please select which type of ticket you would like to submit:</p>
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">{{ values['ticket_type'] }}</p><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+    
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Discord Username and #</p>
+                <input type="email" value="{{ values['username'] }}" disabled size="60" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background-color: #40444b;border-radius: 10px;border: 2px solid #40444b;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">If applicable please provide the Discord Username and # of the user being ticked against</p>
+                <input type="text" value="{{ values['username2'] }}" disabled size="60" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background-color: #40444b;border-radius: 10px;border: 2px solid #40444b;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+    
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Issue:</p>
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Please provide us with as much detail as you can.</p><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">{{ values["issue"] }}</p>
+            </div>
+            </div> 
+            <div class="footer" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #2f3136;text-align: center;">
+                <h5 style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">If you did not sign up please submit a ticket here: <a href="/forms/ticket" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">Ticket Submission Form</a></h5>
+                <h3 style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Invite Link:</h3><a href="https://discord.gg/PzPbSUm" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">https://discord.gg/PzPbSUm</a>
+                <div class="youtube" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    <a href="https://www.youtube.com/channel/UCZ_4uFMgAPYgAkyEWzteMOg" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                        <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="Youtube" width="100" height="100" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    </a>
+                    <a href="https://www.twitch.tv/ucsbphysicsdiscord" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                        <img src="{{ url_for('static', filename='images/twitch.png') }}" alt="Twitch" width="100" height="100" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    </a>
+                    <a href="physics-discord@ucsb.edu" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                        <img src="{{ url_for('static', filename='images/Email.png') }}" alt="Email" width="100" height="100" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

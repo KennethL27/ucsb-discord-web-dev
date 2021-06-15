@@ -1,9 +1,10 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, Response
 from website import app, db, bcrypt
 from website.forms import VerificationForm, RemovalForm, EmojiForm, TicketForm, AdminSignin
 from website.models import Verify, Removal, Emoji, Ticket, Admin
 from website.reciept.email_sender import EmailReciept
 from flask_login import login_user, current_user, logout_user, login_required
+from werkzeug.utils import secure_filename
 
 @app.route('/')
 def home():
@@ -42,7 +43,7 @@ def verificationform():
         db.session.add(verify)
         db.session.commit()
         if form.isreciept.data:
-            EmailReciept(form.user_option.data, form.email.data, form.full_name.data, form.discord_username.data)
+            EmailReciept('verification', option = form.user_option.data, email = form.email.data, name = form.full_name.data, username = form.discord_username.data)
         flash('Thank you for your Verification', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/verificationform.html', title = 'Verification', form = form)
@@ -51,10 +52,28 @@ def verificationform():
 def removalform():
     form = RemovalForm()
     if form.validate_on_submit():
-        removal = Removal(reason = str(form.reason.data), other_reason = form.other.data, email = form.email.data, username = form.discord_username.data, comments = form.comments.data)
+        removal = Removal(reason = str(form.reason.data), other_reason = form.other.data, email = form.email.data, username = form.discord_username.data, comments = form.comments.data, isreciept = form.isreciept.data)
         db.session.add(removal)
         db.session.query(Verify).filter_by(username = form.discord_username.data).delete()
         db.session.commit()
+        if form.isreciept.data:
+            checks = {}
+            for value in form.reason.data:
+                if value == '1':
+                    checks[f'check{value}'] = 'Graduating and no longer need the Server'
+                elif value == '2':
+                    checks[f'check{value}'] = 'Switching Majors'
+                elif value == '3':
+                    checks[f'check{value}'] = 'This community is not for me'
+            if not form.other.data:
+                other = ''
+            else:
+                other = form.other.data
+            if not form.comments.data:
+                comments = ''
+            else:
+                comments = form.comments.data
+            EmailReciept('removal', checks = checks, other = other, email = form.email.data, username = form.discord_username.data, comments = comments)
         flash('Thank you for your Removal Form', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/removalform.html', title = 'Removal', form = form)
@@ -64,7 +83,10 @@ def emojiform():
     form = EmojiForm()
     if form.validate_on_submit():
         file = request.files['image']
-        emoji = Emoji(username = form.discord_username.data, description = form.description.data, emoji_image = file.read())
+        emoji_image = file.read()
+        emoji_image_name = secure_filename(file.filename)
+        emoji_image_type = file.mimetype
+        emoji = Emoji(username = form.discord_username.data, description = form.description.data, emoji_image = emoji_image, emoji_image_name = emoji_image_name, emoji_image_type = emoji_image_type)
         db.session.add(emoji)
         db.session.commit()
         flash('Thank you for submitting an Emoji', 'success')
@@ -75,9 +97,16 @@ def emojiform():
 def ticketform():
     form = TicketForm()
     if form.validate_on_submit():
-        ticket = Ticket(type_ticket = form.ticket_type.data, username = form.discord_username.data, against_username = form.discord_username_against.data, issue = form.description.data)
+        ticket = Ticket(type_ticket = form.ticket_type.data, username = form.discord_username.data, against_username = form.discord_username_against.data, issue = form.description.data, isreciept = form.isreciept.data)
         db.session.add(ticket)
         db.session.commit()
+        if form.isreciept.data:
+            if not form.discord_username_against.data:
+                username2 = ''
+            else:
+                username2 = form.discord_username_against.data
+            email = Verify.query.filter_by(username = form.discord_username.data).first().email
+            EmailReciept('ticket', ticket_type = form.ticket_type.data, username = form.discord_username.data, username2 = username2, issue = form.description.data, email = email)
         flash('Thank you for submitting a Ticket', 'success')
         return redirect(url_for('forms'))
     return render_template('forms/ticketform.html', title = 'Ticket', form = form)
@@ -105,4 +134,14 @@ def logout():
 @app.route('/admin/home', methods=['GET', 'POST'])
 @login_required
 def admin_home():
-    return render_template('admin/admin_home.html', title = 'ADMIN | HOME')
+    images = []
+    for image in Emoji.query.all():
+        images.append(Response(image.emoji_image, mimetype=image.emoji_image_type))
+    return render_template('admin/admin_home.html', title = 'ADMIN | HOME', verify_data = Verify.query.all(), removal_data = Removal.query.all(), 
+                            Emoji_data = Emoji.query.all(), ticket_data = Ticket.query.all())
+
+@app.route('/admin/image/<int:id>')
+@login_required
+def get_emoji_image(id):
+    emoji_image = Emoji.query.filter_by(id=id).first()
+    return Response(emoji_image.emoji_image, mimetype=emoji_image.emoji_image_type)

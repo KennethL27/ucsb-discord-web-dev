@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        * {
+            margin: 5px;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        .header, .main, .footer {
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #fdbf32;
+        }
+
+        .user-input {
+            color: #003560;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #40444b; 
+
+        }
+
+        ::placeholder {
+            color: #003560;
+            opacity: 1;
+        }
+    </style>
+
+    <body>
+
+        <div class="surrounding">
+            <div class="header">
+                <h1>UCSB Physics Discord Removal Reciept</h1>
+            </div>
+            <div class="main">
+                <div class="summary">
+                    <h2>Summary</h2>
+                    <p>We are so sad to hear you leave! We hope you found someting special with us, but we wish you all the best in your future endeavours.</p>
+                </div>
+                <div class="answer">
+                    <h2>Removal Form</h2>
+                <p>Please select which one(s) applies to you:</p>
+                {% for check in values['checks'] %}
+                    <input type="checkbox" disabled checked>
+                    <label>{{ values['checks'][check] }}</label><br>
+                {% endfor %}
+                <!-- <input type="checkbox" disabled {{ check1 }}>
+                <label for="graduating">Graduating and no longer need the Server</label><br>
+                <input type="checkbox" disabled {{ check2 }}>
+                <label for="switching-majors">Switching Majors</label><br>
+                <input type="checkbox" disabled {{ check3 }}>
+                <label for="community">This community is not for me</label><br>
+                <input type="checkbox" disabled {{ check4 }}> -->
+                <label for="other">Other: </label>
+                <label>{{ values["other"] }}</label><br><br>
+    
+                <p>Email Adress</p>
+                <input type="email" name="email-address" id="email-address" value="{{ values['email'] }}" disabled size=60><br><br><br>
+                
+                <p>Discord Username and #</p>
+                <input type="text" name="full-name" id="full-name" value="{{ values['username'] }}" disabled size=60><br><br><br>
+    
+                <p>Comments or Concerns:</p>
+                <p>Please help us understand your departure so that we can make our community better. We really appreciate having you be apart of our community and we wish you the best!</p><br><br>
+                <p><span class="user-input">{{ values["comments"] }}</span></p>
+                </div>
+            </div>
+            </div>
+
+    </body>
+
+</html>

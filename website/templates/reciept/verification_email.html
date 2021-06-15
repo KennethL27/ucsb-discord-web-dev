@@ -104,25 +104,25 @@
     <div class="main" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; background: #2f3136; text-align: center;">
         <div class="summary" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
             <h2 style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">Summary</h2>
-            <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Thank you {{ name }} (aka {{ username }}) for completing the Verfication Form. You can view your responses here.</p>
+            <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Thank you {{ values["name"] }} (aka {{ values["username"] }}) for completing the Verfication Form. You can view your responses here.</p>
         </div>
         <div class="answer" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
             <h2 style="margin: 5px; padding: 10px; font-family: 'Open Sans', sans-serif; text-decoration: none; color: #fdbf32;">Verfication Form</h2>
             <div class="respone1" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
                 <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Please select which one applies to you:</p>
-                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">{{ type_student }}</p>
+                <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">{{ values["option"] }}</p>
             </div>
             <div class="respone2" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
                 <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Email Address</p>
-                <input type="text" value="{{ email }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
+                <input type="text" value="{{ values['email'] }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
             </div>
             <div class="respone3" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
                 <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Full Name</p>
-                <input type="text" value="{{ name }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
+                <input type="text" value="{{ values['name'] }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
             </div>
             <div class="respone4" style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">
                 <p style="margin: 5px; padding: 10px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none;">Discord Username and #</p>
-                <input type="text" value="{{ username }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
+                <input type="text" value="{{ values['username'] }}" disabled style="margin: 5px; color: white; font-family: 'Open Sans', sans-serif; text-decoration: none; padding: 10px; background-color: #40444b; border-radius: 10px; border: 2px solid #40444b;">
             </div>
         </div>
     </div>

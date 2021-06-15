@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        * {
+            margin: 5px;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        .header, .main, .footer {
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #fdbf32;
+        }
+
+        .user-input {
+            color: #003560;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #40444b; 
+
+        }
+
+        ::placeholder {
+            color: #003560;
+            opacity: 1;
+        }
+    </style>
+
+    <body>
+
+        <div class="surrounding">
+            <div class="header">
+                <h1>UCSB Physics Discord Ticket Reciept</h1>
+            </div>
+            <div class="main">
+                <div class="summary">
+                    <h2>Summary</h2>
+                    <p>Thank you for submitting a ticket. We will take action if necessary.</p>
+                </div>
+                <div class="answer">
+                    <h2>Ticket Form</h2>
+                <p>Please select which type of ticket you would like to submit:</p>
+                <p><span class="user-input">{{ values['ticket_type'] }}</span></p><br><br>
+    
+                <p>Discord Username and #</p>
+                <input type="email" value="{{ values['username'] }}" disabled size=60><br><br><br>
+                
+                <p>If applicable please provide the Discord Username and # of the user being ticked against</p>
+                <input type="text" value="{{ values['username2'] }}" disabled size=60><br><br><br>
+    
+                <p>Issue:</p>
+                <p>Please provide us with as much detail as you can.</p><br><br>
+                <p><span class="user-input">{{ values["issue"] }}</span></p>
+                </div>
+            </div>
+            </div>
+
+    </body>
+
+</html>

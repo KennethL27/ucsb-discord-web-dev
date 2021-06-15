@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html>
+
+    <style>
+        * {
+            margin: 5px;
+            padding: 10px;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        .surrounding {
+            background: #36393f;
+        }
+
+        .header, .main, .footer {
+            background: #2f3136;
+            text-align: center;
+        }
+
+        h1, h2, a {
+            color: #fdbf32;
+        }
+
+        input {
+            padding: 10px;
+            background-color: #40444b;
+            border-radius: 10px;
+            border: 2px solid #40444b; 
+
+        }
+    </style>
+
+    <body>
+        <div class="surrounding">
+            <div class="header">
+                <h1>UCSB Physics Discord Removal Reciept</h1>
+            </div>
+            <div class="main">
+                <div class="summary">
+                    <h2>Summary</h2>
+                    <p>We are so sad to hear you leave! We hope you found someting special with us, but we wish you all the best in your future endeavours.</p>
+                </div>
+            <div class="answers">
+                <h2>Removal Form</h2>
+                <p>Please select which one(s) applies to you:</p>
+                {% for check in values['checks'] %}
+                    <input type="checkbox" disabled checked>
+                    <label>{{ values['checks'][check] }}</label><br>
+                {% endfor %}
+                <label for="other">Other: </label>
+                <label>{{ values["other"] }}</label><br><br>
+    
+                <p>Email Adress</p>
+                <input type="email" name="email-address" id="email-address" value="{{ values['email'] }}" disabled size=60><br><br><br>
+                
+                <p>First and Last Name</p>
+                <input type="text" name="full-name" id="full-name" value="{{ values['name'] }}" disabled size=60><br><br><br>
+    
+                <p>Comments or Concerns:</p>
+                <p>Please help us understand your departure so that we can make our community better. We really appreciate having you be apart of our community and we wish you the best!</p><br><br>
+                <p>{{ values["comments"] }}</p>
+            </div>
+            </div> 
+            <div class="footer">
+                <h5>If you did not sign up please submit a ticket here: <a href="/forms/ticket">Ticket Submission Form</a></h5>
+                <h3>Invite Link:</h3><a href="https://discord.gg/PzPbSUm">https://discord.gg/PzPbSUm</a>
+                <div class="youtube">
+                    <a href="https://www.youtube.com/channel/UCZ_4uFMgAPYgAkyEWzteMOg">
+                        <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="Youtube" width="100" height="100">
+                    </a>
+                    <a href="https://www.twitch.tv/ucsbphysicsdiscord">
+                        <img src="{{ url_for('static', filename='images/twitch.png') }}" alt="Twitch" width="100" height="100">
+                    </a>
+                    <a href="physics-discord@ucsb.edu">
+                        <img src="{{ url_for('static', filename='images/Email.png') }}" alt="Email" width="100" height="100">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+
+    
+
+    <body style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+        <div class="surrounding" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #36393f;">
+            <div class="header" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #2f3136;text-align: center;">
+                <h1 style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">UCSB Physics Discord Removal Reciept</h1>
+            </div>
+            <div class="main" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #2f3136;text-align: center;">
+                <div class="summary" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    <h2 style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">Summary</h2>
+                    <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">We are so sad to hear you leave! We hope you found someting special with us, but we wish you all the best in your future endeavours.</p>
+                </div>
+            <div class="answers" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                <h2 style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">Removal Form</h2>
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Please select which one(s) applies to you:</p>
+                {% for check in values['checks'] %}
+                    <input type="checkbox" disabled checked style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background-color: #40444b;border-radius: 10px;border: 2px solid #40444b;">
+                    <label style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">{{ values['checks'][check] }}</label><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                {% endfor %}
+                <label for="other" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Other: </label>
+                <label style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">{{ values["other"] }}</label><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+    
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Email Adress</p>
+                <input type="email" name="email-address" id="email-address" value="{{ values['email'] }}" disabled size="60" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background-color: #40444b;border-radius: 10px;border: 2px solid #40444b;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Discord Username and #</p>
+                <input type="text" name="full-name" id="full-name" value="{{ values['username'] }}" disabled size="60" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background-color: #40444b;border-radius: 10px;border: 2px solid #40444b;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+    
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Comments or Concerns:</p>
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Please help us understand your departure so that we can make our community better. We really appreciate having you be apart of our community and we wish you the best!</p><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;"><br style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                <p style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">{{ values["comments"] }}</p>
+            </div>
+            </div> 
+            <div class="footer" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;background: #2f3136;text-align: center;">
+                <h5 style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">If you did not sign up please submit a ticket here: <a href="/forms/ticket" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">Ticket Submission Form</a></h5>
+                <h3 style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">Invite Link:</h3><a href="https://discord.gg/PzPbSUm" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">https://discord.gg/PzPbSUm</a>
+                <div class="youtube" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    <a href="https://www.youtube.com/channel/UCZ_4uFMgAPYgAkyEWzteMOg" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                        <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="Youtube" width="100" height="100" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    </a>
+                    <a href="https://www.twitch.tv/ucsbphysicsdiscord" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                        <img src="{{ url_for('static', filename='images/twitch.png') }}" alt="Twitch" width="100" height="100" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    </a>
+                    <a href="physics-discord@ucsb.edu" style="margin: 5px;padding: 10px;color: #fdbf32;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                        <img src="{{ url_for('static', filename='images/Email.png') }}" alt="Email" width="100" height="100" style="margin: 5px;padding: 10px;color: white;font-family: 'Open Sans', sans-serif;text-decoration: none;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

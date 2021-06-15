@@ -1,8 +1,8 @@
 from flask import render_template
 import pdfkit
 
-def build_email(type_student, email, name, username):
-    pdf_template = render_template('reciept/verification_pdf.html', type_student = type_student, email = email, name = name, username = username)
+def build_email(form_type, values):
+    pdf_template = render_template(f'reciept/{form_type}_pdf.html', values = values)
     pdf = pdfkit.from_string(pdf_template, False)
-    email_template = render_template('reciept/verification_email.html', type_student = type_student, email = email, name = name, username = username)
+    email_template = render_template(f'reciept/{form_type}_email.html', values = values)
     return pdf, email_template
