@@ -1,6 +1,7 @@
 from website import db, login_manager
 from datetime import datetime
 from flask_login import UserMixin
+import json
 
 class Verify(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -9,10 +10,21 @@ class Verify(db.Model):
     full_name = db.Column(db.String(40), nullable = False)
     username = db.Column(db.String(32), nullable = False)
     isreciept = db.Column(db.Boolean(), nullable = False, default = False)
+    isgaucho = db.Column(db.Boolean(), nullable = False, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
-        return f"User('{self.username}')"
+        data = {
+            'id' : self.id,
+            'type_student' : self.type_student,
+            'email' : self.email,
+            'full_name' : self.full_name,
+            'username' : self.username,
+            'isreciept' : self.isreciept,
+            'isgaucho' : self.isgaucho,
+            'date_created' : str(self.date_created)
+            }
+        return json.dumps(data)
 
 class Removal(db.Model):
     id = db.Column(db.Integer, primary_key = True)
