@@ -76,7 +76,7 @@
                     <td><input type="checkbox" name="" id=""></td>
                     <td>{{  user.username  }}</td>
                     <td>{{  user.description  }}</td>
-                    <td><a href="{{ url_for('get_emoji_image', id=loop.index) }}" target="_blank">{{ user.emoji_image_name }}</a></td>
+                    <td><a href="{{ url_for('get_emoji_image', id=emoji_ids[loop.index - 1]) }}" target="_blank">{{ user.emoji_image_name }}</a></td>
                     <td>{{  user.date_created  }}</td>
                 </tr>
             {% endfor %}

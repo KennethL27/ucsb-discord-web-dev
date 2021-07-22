@@ -134,14 +134,13 @@ def logout():
 @app.route('/admin/home', methods=['GET', 'POST'])
 @login_required
 def admin_home():
-    images = []
-    for image in Emoji.query.all():
-        images.append(Response(image.emoji_image, mimetype=image.emoji_image_type))
+    emoji_list = db.session.query(Emoji.id).all()
+    emoji_ids = [entry.id for entry in emoji_list]
     return render_template('admin/admin_home.html', title = 'ADMIN | HOME', verify_data = Verify.query.all(), removal_data = Removal.query.all(), 
-                            Emoji_data = Emoji.query.all(), ticket_data = Ticket.query.all())
+                            Emoji_data = Emoji.query.all(), ticket_data = Ticket.query.all(), emoji_ids = emoji_ids)
 
+# removing login_required to allow the api to send viable links to client
 @app.route('/admin/image/<int:id>')
-@login_required
 def get_emoji_image(id):
     emoji_image = Emoji.query.filter_by(id=id).first()
     return Response(emoji_image.emoji_image, mimetype=emoji_image.emoji_image_type)

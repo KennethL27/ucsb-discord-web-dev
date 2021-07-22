@@ -37,7 +37,17 @@ class Removal(db.Model):
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
-        return f"User('{self.username}')"
+        data = {
+            'id' : self.id,
+            'reason' : self.reason,
+            'other_reason' : self.other_reason,
+            'email' : self.email,
+            'username' : self.username,
+            'comments' : self.comments,
+            'isreciept' : self.isreciept,
+            'date_created' : str(self.date_created)
+        }
+        return json.dumps(data)
 
 class Emoji(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -46,10 +56,21 @@ class Emoji(db.Model):
     emoji_image = db.Column(db.Text, nullable = True)
     emoji_image_name = db.Column(db.Text, nullable = True)
     emoji_image_type = db.Column(db.Text, nullable = True)
+    isinserver = db.Column(db.Boolean(), nullable = False, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
-        return f"User('{self.username}')"
+        data = {
+            'id' : self.id,
+            'username' : self.username,
+            'description' : self.description,
+            'emoji_image' : 'http://127.0.0.1:5000/admin/image/' + str(self.id),
+            'emoji_image_name' : self.emoji_image_name,
+            'emoji_image_type' : self.emoji_image_type,
+            'isinserver' : self.isinserver,
+            'date_created' : str(self.date_created)
+        }
+        return json.dumps(data)
 
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -58,10 +79,21 @@ class Ticket(db.Model):
     against_username = db.Column(db.String(32), nullable = False)
     issue = db.Column(db.Text, nullable = True)
     isreciept = db.Column(db.Boolean(), nullable = False, default = False)
+    isresolved = db.Column(db.Boolean(), nullable = False, default = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
-        return f"User('{self.username}')"
+        data = {
+            'id' : self.id,
+            'type_ticket' : self.type_ticket,
+            'username' : self.username,
+            'against_username' : self.against_username,
+            'issue' : self.issue,
+            'isreciept' : self.isreciept,
+            'isresolved' : self.isresolved,
+            'date_created' : str(self.date_created)
+        }
+        return json.dumps(data)
 
 @login_manager.user_loader
 def load_user(user_id):
