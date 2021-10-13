@@ -12,27 +12,27 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title = 'About')
+    return render_template('nav_pages/about.html', title = 'About')
 
 @app.route('/events')
 def events():
-    return render_template('events.html', title = 'Events')
+    return render_template('nav_pages/events.html', title = 'Events')
 
 @app.route('/resources')
 def resources():
-    return render_template('resources.html', title = 'Resources')
+    return render_template('nav_pages/resources.html', title = 'Resources')
 
 @app.route('/gettingstarted')
 def gettingstarted():
-    return render_template('gettingstarted.html', title = 'Getting Started')
+    return render_template('nav_pages/gettingstarted.html', title = 'Getting Started')
 
 @app.route('/botguide')
 def botguide():
-    return render_template('botguide.html', title = 'Bot Guide')
+    return render_template('nav_pages/botguide.html', title = 'Bot Guide')
 
 @app.route('/forms')
 def forms():
-    return render_template('forms.html', title = 'Forms')
+    return render_template('nav_pages/forms.html', title = 'Forms')
 
 # Forms
 @app.route('/forms/verification', methods=['GET', 'POST'])

@@ -1,0 +1,43 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_pages/resources.css') }}">
+
+<div class="resource-main">
+    <h1>
+        Resources
+    </h1>
+    <div class="resource" >
+        <div class="resourcecard" id="resource1">
+            <ul>
+                <li>
+                    <a href="https://dsp.sa.ucsb.edu/prospective-students/apply">DSP APPLICATION</a>
+                </li>
+                <li>
+                    <a href="https://ombuds.ucsb.edu/">THE OFFICE OF OMBUDS</a>
+                </li>
+                <li>
+                    <a href="wgse.sa.ucsb.edu/Care">CAMPUS ADVOCACY, RESOURCES, AND EDUCATION (CARE)</a>
+                </li>
+                <li>
+                    <a href="http://caps.sa.ucsb.edu/services/overview-of-services">COUNSELING AND PSYCHOLOGICAL SERVICE (CAPS)</a>
+                </li>
+                <li>
+                    <a href="https://www.hr.ucsb.edu/asap">ACADEMIC & STAFF ASSISTANCE PROGRAM (ASAP)</a>
+                </li>
+                <li>
+                    <a href="https://www.physics.ucsb.edu/resources/teachingassignments ">TEACHING ASSIGNMENTS</a>
+                </li>
+            </ul>
+                
+        </div>
+        <!-- <div class="resourcecard" id="resource2">
+            <ul>
+
+            </ul>
+                
+        </div> -->
+    </div>
+</div>
+
+{% endblock %}

@@ -50,10 +50,9 @@
 }
 
 .image-holder {
-    margin-left: 60px;
-    margin-top: 50px;
+    margin-left: 70px;
+    margin-top: 40px;
     height: 200px;
-    background: black;
     grid-column: 1/2;
     grid-row: 1/3;
 }
@@ -74,8 +73,6 @@
     }
 
     .join {
-        width: 100%;
-        height: 100%;
         text-align: center;
         cursor: pointer;
         font-size: 24px;

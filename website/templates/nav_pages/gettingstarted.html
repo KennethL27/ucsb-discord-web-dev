@@ -1,0 +1,46 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_pages/gettingstarted.css') }}">
+
+<div class="gettingstarted-main">
+    <h1>Getting Started</h1>
+    <div class="gettingstarted">
+        <h2>Role Selection</h2>
+        <div class="roleselection">
+            <div class="roleselection-card" id="roleselection-card1">
+                <div class="selectiondesc">
+                To gain access to certain sections of the server you most likely need to select a role for yourself.
+                The staff have (tediously) created roles that tie to specific channels and voice channels 
+                so that theres less clutter for users.
+                To select a role please view the <a target="_blank">Self Assigning Roles</a> Category.
+                <br>
+                <img src="{{ url_for('static', filename='images/gettingstarted/Selection1.png') }}" width=50% alt="Selection1">
+                <br>
+                This category has all the different types of role selection you will need for the server.
+                Going to one of the channels (year, pronoun, club, or course) you will then need to click on one 
+                (or in some cases multiple) emojis that are under the message.
+                <br>
+                <img src="{{ url_for('static', filename='images/gettingstarted/Selection2.png') }}" width=50% alt="Selection2">
+                <br>
+                If you click on the emoji and do not recieve the role, then please give the Bot some time to provide you with the role.
+                </div>  
+            </div>
+        </div>
+        <h2>Guidelines</h2>
+        <div class="guidelines">
+            <div class="guidelines-card">
+                guidelines
+            </div>
+        </div>
+        <h2>Policy</h2>
+        <div class="policy">
+            <div class="policy-card">
+                policy
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

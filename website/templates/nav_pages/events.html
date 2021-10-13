@@ -1,0 +1,92 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_pages/events.css') }}">
+        
+<div class="event-main">
+    <h1>
+        Current Events
+    </h1>
+    <div class="current">
+        <div class="currentevent" id="current1">
+            <h3>
+                Study Grinds!
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/events/Book_Events.png') }}" width=50% alt="Study Grinds">
+            </div>
+            <div class="currecnteventdesc">
+                Come hangout with us during our Study Grinds! 
+                We all join one of two Voice Channel within the server depending on your needs. 
+                If you feel like socializing while working (or procrasting no one is judging) then join the Social PSR Voice Channel.
+                If you feel like working hard and staying focused then join the Serious PSR Voice Channel.
+            </div>
+        </div>
+        <div class="currentevent" id="current2">
+            <h3>
+                AMA Podcasts!
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/events/Mic_Events.png') }}" width=50% alt="Podcast">
+            </div>
+            <div class="currecnteventdesc">
+                Join us when we have our AMA Podcast where students can ask any questions to professors, faculty, or students.
+                We will record and post the events so that if you want your question to be answered, just leave a comment and watch it later.
+                Hope yall like it!
+            </div>
+        </div>
+        <div class="currentevent" id="current3">
+            <h3>
+                AMA Text Channels!
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/events/Message_Events.png') }}" width=50% alt="Text Channels">
+            </div>
+            <div class="currecnteventdesc">
+                Similar to our AMA Podcast, join us in the Text Channels to ask professors, faculty, or students your burning questions. 
+                Unlike the AMA Podcasts this format is more chill and relax. 
+                These Text Channels will be archived after the event ends so that you can come back and re-read them later. 
+            </div>
+        </div>
+    </div>
+    <h1>
+        Past Events
+    </h1>
+    <div class="past">
+        <div class="pastevent" id="past1">
+            <h3>
+                AMA Podcast with Dr. B
+            </h3>
+            <div>
+                <iframe width="450" height="315" 
+                src="https://www.youtube.com/embed/0uig4zfG3Ms" frameborder="0"  
+                allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="pastevent" id="past2">
+            <h3>
+                AMA Podcast with Dr. Omer Blaes 
+            </h3>
+            <div>
+                <iframe width="450" height="315" 
+                src="https://www.youtube.com/embed/OrZlsft7spA" frameborder="0"  
+                allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="pastevent" id="past3">
+            <h3>
+                Game Nights
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/events/Controller_Events.png') }}" width=50% alt="Game Nights">
+            </div>
+            <div class="pasteventdesc">
+                In the past we have create Games Nights where we join to play games such as 
+                Among Us, Jackbox, Minecraft, and many more. 
+                If you would like to see this event come back, just let us know!
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

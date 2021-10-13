@@ -1,0 +1,45 @@
+.resource-main {
+    display: block;
+    margin-top: 5%;
+}
+
+.resource-main h1 {
+    margin-left: 5%;
+}
+
+.resource {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: grid;
+    padding: 1%;
+    gap: 20px;
+}
+
+.resourcecard {
+    background: #2f3136;
+    text-align: center;
+    border-radius: 50px;
+    grid-template-columns: repeat(1fr);
+    gap: 20px;
+}
+
+.resourcecard ul {
+    margin: 5%;
+    padding: 5%;
+    list-style-position: inside;
+    list-style: square inside;
+}
+
+.resourcecard ul li a{
+    color: #fdbf32;
+}
+
+.resource1 {
+    grid-column: 1/2;
+}
+
+.resource2 {
+    grid-column: 2/3;
+}

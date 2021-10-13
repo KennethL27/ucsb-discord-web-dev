@@ -1,0 +1,47 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_pages/botguide.css') }}">
+
+        <div class="botguide-main">
+            <h1>Bot Guide</h1>
+            <div class="botguide">
+                <div class="botguide-card" id="botguide-card1">
+                    <h3>Broida</h3>
+                    <img src="{{ url_for('static', filename='images/botguide/Broida.jpg') }}" width=15% alt="Broida">
+                    <div class="botguidedesc">
+                        Broida is one of main Discord Bots that we have developed and deployed within the server.
+                        The main purpose behind this project is to provide useful information to both moderators and users. 
+                        Broida is made by using Discord's Python API. 
+                        As the UCSB Physics Discord Community continues to grow, Broida will become more intricate and provide more usufull tools.
+                        To view its full list of commands that you can use simply send a ".help" (preferably in the bot command channel) 
+                        which will provide you a list of the commands that Broida has to offer.
+                    </div>
+                    <img src="{{ url_for('static', filename='images/botguide/Broida_Help.jpg') }}" width=50% alt="Broida Help Command">
+                    <div class="botguidedesc">
+
+                    </div>
+                </div>
+                <div class="botguide-card" id="botguide-card2">
+                    <h3>MathBot</h3>
+                    <img src="{{ url_for('static', filename='images/botguide/MathBot.jpg') }}" width=15% alt="Broida">
+                    <div class="botguidedesc">
+                        MathBot is another major Discord Bot that we have within the server. 
+                        This bot allows us to use LaTeX within the server to easy display equations. (Or maybe make some memes with) 
+                        To enter a LaTeX equation you first have to begin the message with "=tex " followed by the equation you want. 
+                        For example: 
+                    </div>
+                    <img src="{{ url_for('static', filename='images/botguide/MathBot_Example.png') }}" width=30% alt="Broida">
+                    <div class="botguidedesc">
+                        MathBot also has WolframAlpha capabilites. 
+                        Instead of opening a new tab simply use MathBot to access WolframAlpha. 
+                        In order to use this command your message must start with "=wolf " followed by the expersion you want to search.
+                    </div>
+                </div>
+                <!-- <div class="botguide-card" id="botguide-card3">
+                    guide 3
+                </div> -->
+            </div>
+        </div>
+
+{% endblock %}

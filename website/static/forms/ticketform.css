@@ -1,0 +1,49 @@
+.ticket-main {
+    display: block;
+    margin-top: 5%;
+}
+
+.ticket-main h1 {
+    margin-left: 5%;
+}
+
+.form-holder {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: grid;
+    padding: 1%;
+    grid-template-rows: repeat(1fr);
+    gap: 20px;
+}
+
+form {
+    background: #2f3136;
+    text-align: center;
+    border-radius: 50px;
+    margin: 5%;
+}
+
+form input, .comments {
+    padding: 10px;
+    background-color: #40444b;
+    border-radius: 10px;
+    border: 2px solid #40444b; 
+}
+
+input, select, textarea {
+    font-size: 100%;
+}
+
+.invalid span{
+    color: red;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+.ticket-type {
+    list-style-type: none;
+}

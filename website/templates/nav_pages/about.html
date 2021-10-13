@@ -1,0 +1,152 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_pages/about.css') }}">
+
+<div class="about-main">
+    <h1>
+        Officers
+    </h1>
+    <div class="officers">
+            <div class="officercard" id="officer1">
+                <div class="cardcontainer">
+                <h2>
+                    President
+                </h2>
+                <div class="officer-image">
+                    <img src="{{ url_for('static', filename='images/about/Question_Holder.png') }}" width=50% alt="President">
+                </div>
+                <h3>Kyle</h3>
+                <ul>
+                    <li>Provide a direction and vision for the club for the academic year</li>
+                    <li>Delegate tasks to the other officers</li>
+                    <li>Completing tasks to ensure the discord runs smoothly</li>
+                </ul>
+                </div>
+            </div>
+            <div class="officercard" id="officer2">
+                <h2>
+                    Secretary
+                </h2>
+                <div class="officer-image">
+                    <img src="{{ url_for('static', filename='images/about/Question_Holder.png') }}" width=50% alt="Secretary">
+                </div>
+                <h3>Alex</h3>
+                <ul>
+                    <li>Maintain detailed records of staff meetings.</li>
+                    <li>Write emails, announcements, and the faculty newsletter.</li>
+                    <li>Coordinate specific needs or requests of faculty members and the department.</li>
+                </ul>
+            </div>
+            <div class="officercard" id="officer3">
+                <h2>
+                    Treasurer 
+                </h2>
+                <div class="officer-image">
+                    <img src="{{ url_for('static', filename='images/about/Question_Holder.png') }}" width=50% alt="Treasurer">
+                </div>
+                <h3>Natalie</h3>
+                <ul>
+                    <li>Record and handle all organizational monetary transactions.</li>
+                    <li>Maintain accurate hard and soft records of any transactions for three years.</li>
+                    <li>Assist the development and implementation of fundraising activities that promote financial opportunities.</li>
+                </ul>
+            </div>
+            <div class="officercard" id="officer4">
+                <h2>
+                    Bot Developer
+                </h2>
+                <div class="officer-image">
+                    <img src="{{ url_for('static', filename='images/about/Question_Holder.png') }}" width=50% alt="Bot Developer">
+                </div>
+                <h3>Sarah</h3>
+                <ul>
+                    <li>Improve and maintain discord bots.</li>
+                    <li>Write emails, announcements, and the faculty newsletter.</li>
+                    <li>Shall assist Admins with an introduction to a new bot (if needed).</li>
+                </ul>
+            </div>
+            <div class="officercard" id="officer5">
+                <h2>
+                    Moderators
+                </h2>
+                <div class="officer-image">
+                    <img src="{{ url_for('static', filename='images/about/Mods_About.png') }}" width=50% alt="Mods">
+                </div>
+                <h3>Benito, Dylan, Jacob, Philip</h3>
+                <ul>
+                    <li>Are responsible for community management.</li>
+                    <li>Shall assist Admins in ensuring that the Discord remains up to UCSB Physics Department Standards.</li>
+                    <li>They will have the following permissions: Kick Members, Manage Nicknames, Mute Members, Deafen Members, Move Members, Use Voice Activity, Priority Speaker.</li>
+                </ul>
+            </div>
+    </div>
+    <h1>
+        Mission Statment
+    </h1>
+    <div class="mission">
+        <h3>
+            UCSB Physics Discord is dedicated to forming and maintaining an online platform that integrates all
+            aspects of the UCSB Physics undergraduate and graduate education into one cohesive online community.
+        </h3>
+    </div>
+    <h1>
+        Active Projects
+    </h1>
+    <div class="projects">
+        <div class="project" id="project1">
+            <h3>
+                Website
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/about/Construction_About.png') }}" width=50% alt="Website Construction">
+            </div>
+            <div class="projectdesc">
+                We are hard at work to bring you an easy way to access information about our server without joining directly. 
+                We understand that Discord might be new to some users, 
+                which is why we believe that creating this website can provide students and faculty a one stop shop to learn more about us.
+                Thank you for checking us out and we can't wait to see yall at our events or to just hang out!
+            </div>
+        </div>
+        <div class="project" id="project2">
+            <h3>
+                Ask Me Anything (AMA)
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/about/AMA_About.png') }}" width=50% alt="AMA">
+            </div>
+            <div class="projectdesc">
+                We are constantly trying to create AMAs that provide students with new information or insights about a field of physics.
+                We have done many professor AMAs that we stream on Twitch and upload it to YouTube 
+                (you can check it out <a href="https://www.youtube.com/channel/UCZ_4uFMgAPYgAkyEWzteMOg">here</a>).
+                We are testing out a new AMA with Upperclassman so tell us how we did! 
+            </div>
+        </div>
+        <div class="project" id="project3">
+            <h3>
+                Graduate Application
+            </h3>
+            <div>
+                <img src="{{ url_for('static', filename='images/about/Checklist_About.png') }}" width=50% alt="Graduate Application">
+            </div>
+            <div class="projectdesc">
+                One of longest (and toughest) projects is creating a unique grad app forum 
+                that provides more helpfulness than giving students imposter syndome. 
+                We have naively experimented once before but quickly learned how difficult it is to implent.
+                We are carefully developing a new system that attempts to as inclusive as possible. 
+                Stay tuned to see what we come up with! 
+                <br><br>
+                If you have any ideas, let us know in the server!
+            </div>
+        </div>
+    </div>
+    <h1>
+        Previous Officers
+    </h1>
+    <div class="previous">
+        <h3>Founder: <a href="kenneth.lara01@gmail.com">Kenneth Lara</a> (C/O '21)</h3>
+        <h3>Admin/Department Liason: <a href="">Kellan Colburn</a> (C/O '21)</h3>
+    </div>
+</div>
+
+{% endblock %}

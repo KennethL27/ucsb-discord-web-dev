@@ -1,0 +1,71 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='nav_pages/forms.css') }}">
+
+<div class="forms-main">
+    <h1>Forms</h1>
+    <div class="forms">
+        <div class="forms-card" id="forms-card1">
+            <div class="forms-card-image">
+                <img src="{{ url_for('static', filename='images/forms/Check_Forms.png') }}" width=50% alt="Verification">
+            </div>
+            <div class="forms-card-title">
+                <h2><a href="{{ url_for('verificationform') }}">Verification Form</a></h2>
+            </div>
+            <div class="forms-card-desc">
+                <p>To gain access to the server please fill out this form! If you do not recieve a role or email please message one of the staff members</p>
+            </div>
+        </div>
+        <div class="forms-card" id="forms-card2">
+            <div class="forms-card-image">
+                <img src="{{ url_for('static', filename='images/forms/Cross_Forms.png') }}" width=50% alt="Removal">
+            </div>
+            <div class="forms-card-title">
+                <h2><a href="{{ url_for('removalform') }}">Removal Form</a></h2>
+            </div>
+            <div class="forms-card-desc">
+                <p>In order to offically leave the server and be removed from our list please fill out this form. We thank you for your time spent here with us, GOOD LUCK!</p>
+            </div>
+        </div>
+        <div class="forms-card" id="forms-card3">
+            <div class="forms-card-image">
+                <img src="{{ url_for('static', filename='images/forms/Emojis_Forms.png') }}" width=50% alt="Emojis">
+            </div>
+            <div class="forms-card-title">
+                <h2><a href="{{ url_for('emojiform') }}">Emoji Request Form</a></h2>
+            </div>
+            <div class="forms-card-desc">
+                <p>Love our emojis? Want to submit your own design? Then fill out this form! We would love to see what you can come up with.</p>
+            </div>
+        </div>
+        <div class="forms-card" id="forms-card4">
+            <div class="forms-card-image">
+                <img src="{{ url_for('static', filename='images/forms/Ticket_Forms.png') }}" width=50% alt="Ticket">
+            </div>
+            <div class="forms-card-title">
+                <h2><a href="{{ url_for('ticketform') }}">Ticket Submission Form</a></h2>
+            </div>
+            <div class="forms-card-desc">
+                <p>Need to sumbit a ticket without using Discord, fill this form out to do so. 
+                    You can submit a ticket for pointing our another user's behavior, functionality of a Bot, 
+                    or providing feedback of a staff member.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='confirmation.css') }}">
+            <div class="confirmation" class="alert alert-{{ category }}">
+                <h1>{{ message }}</h1>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+
+{% endblock %}

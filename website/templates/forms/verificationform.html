@@ -1,75 +1,76 @@
 {% extends "mainlayout.html" %}
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='verificationform.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='forms/verificationform.css') }}">
 
 
 <div class="verification-main">
     <h1>Verification Form</h1>
-    <div class="form-holder">
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
-            <label>Please select which one applies to you:</label><br><br>
-            {{ form.user_option(class="user-option") }}
-            {% if form.user_option.errors %}
-                <div class="invalid">
-                    {% for error in form.user_option.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% endif %}<br><br>
-            {{ form.user_option.label() }}
-            
-            {{ form.email.label() }}
-            {% if form.email.errors %}
-                <div class="invalid">
-                    {% for error in form.email.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% endif %}<br><br>
-            {{ form.email(size=50) }}<br><br><br>
-            
-            {{ form.full_name.label() }}
-            {% if form.full_name.errors %}
-                <div class="invalid">
-                    {% for error in form.full_name.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% endif %}<br><br>
-            {{ form.full_name(size=50, placeholder="First Last") }}<br><br><br>
-            
-            {{ form.discord_username.label() }}
-            {% if form.discord_username.errors %}
-                <div class="invalid">
-                    {% for error in form.discord_username.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% endif %}<br><br>
-            {{ form.discord_username(size=50, placeholder="PhysicsLegends#6877") }}<br><br><br>
+    <div class="form-cards">
+        <div class="form-holder">
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <label>Please select which one applies to you:</label><br><br>
+                {{ form.user_option(class="user-option") }}
+                {% if form.user_option.errors %}
+                    <div class="invalid">
+                        {% for error in form.user_option.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}<br><br>
+                {{ form.user_option.label() }}
+                
+                {{ form.email.label() }}
+                {% if form.email.errors %}
+                    <div class="invalid">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}<br><br>
+                {{ form.email(size=50) }}<br><br><br>
+                
+                {{ form.full_name.label() }}
+                {% if form.full_name.errors %}
+                    <div class="invalid">
+                        {% for error in form.full_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}<br><br>
+                {{ form.full_name(size=50, placeholder="First Last") }}<br><br><br>
+                
+                {{ form.discord_username.label() }}
+                {% if form.discord_username.errors %}
+                    <div class="invalid">
+                        {% for error in form.discord_username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}<br><br>
+                {{ form.discord_username(size=50, placeholder="PhysicsLegends#6877") }}<br><br><br>
 
-            {{ form.isreciept() }}
-            {{ form.isreciept.label() }}
-            {% if form.isreciept.errors %}
-                <div class="invalid">
-                    {% for error in form.isreciept.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% endif %}<br><br>
-            
-            {{ form.submit(class="submit") }}
-
-        </form>
-    </div>
-    <div class="form-info">
-        <div class="desktop-image">
-            desktop image
+                {{ form.isreciept() }}
+                {{ form.isreciept.label() }}
+                {% if form.isreciept.errors %}
+                    <div class="invalid">
+                        {% for error in form.isreciept.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}<br><br>
+                
+                {{ form.submit(class="submit") }}
+            </form>
         </div>
-        <div class="mobile-image">
-            mobile image
+        <div class="form-info">
+            <div class="desktop-image">
+                <img src="{{ url_for('static', filename='images/forms/verification/Desktop_Forms.jpg') }}" width=100% alt="Desktop">
+            </div>
+            <div class="mobile-image">
+                <img src="{{ url_for('static', filename='images/forms/verification/Mobile_Forms.jpg') }}" width=50% alt="Mobile">
+            </div>
         </div>
     </div>
 </div>
