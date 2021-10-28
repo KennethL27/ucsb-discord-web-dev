@@ -12,21 +12,23 @@
         <table>
             <tr>
                 <th></th>
-                <th>Type of Student</th>
+                <th>Type of User</th>
                 <th>Email</th>
                 <th>Full Name</th>
                 <th>Username</th>
                 <th>Is Reciept</th>
+                <th>Is Role</th>
                 <th>Timestamp</th>
             </tr>
             {% for user in verify_data %}
                 <tr>
                     <td><input type="checkbox" name="" id=""></td>
-                    <td>{{  user.type_student  }}</td>
+                    <td>{{  user.type_user  }}</td>
                     <td>{{  user.email  }}</td>
                     <td>{{  user.full_name  }}</td>
                     <td>{{  user.username  }}</td>
                     <td>{{  user.isreciept  }}</td>
+                    <td>{{  user.isrole  }}</td>
                     <td>{{  user.date_created  }}</td>
                 </tr>
             {% endfor %}

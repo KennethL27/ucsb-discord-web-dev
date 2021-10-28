@@ -39,7 +39,7 @@ def forms():
 def verificationform():
     form = VerificationForm()
     if form.validate_on_submit():
-        verify = Verify(type_student = form.user_option.data, email = form.email.data, full_name = form.full_name.data, username = form.discord_username.data, isreciept = form.isreciept.data)
+        verify = Verify(type_user = form.user_option.data, email = form.email.data, full_name = form.full_name.data, username = form.discord_username.data, isreciept = form.isreciept.data)
         db.session.add(verify)
         db.session.commit()
         if form.isreciept.data:

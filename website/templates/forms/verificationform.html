@@ -10,7 +10,7 @@
         <div class="form-holder">
             <form action="" method="post">
                 {{ form.hidden_tag() }}
-                <label>Please select which one applies to you:</label><br><br>
+                <label>Please select if you are: Gaucho, Professor, Physics Department Staff, Alumni, or Visitor</label><br><br>
                 {{ form.user_option(class="user-option") }}
                 {% if form.user_option.errors %}
                     <div class="invalid">

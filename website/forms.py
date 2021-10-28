@@ -12,7 +12,7 @@ class MultipleCheckboxField(SelectMultipleField):
     option_widget = widgets.CheckboxInput()
 
 class VerificationForm(FlaskForm):
-    user_option = RadioField('', validators = [DataRequired()], choices = ["Current UCSB Student or UCSB Faculty", "Prospective UCSB Student"])
+    user_option = RadioField('', validators = [DataRequired()], choices = ["Gaucho", "Professor", "Physics Staff", "Alumni", "Visitor"])
     email = StringField('Email Address', validators = [DataRequired(), Email()])
     full_name = StringField('Full Name', validators = [DataRequired()])
     discord_username = StringField('Discord Username and #', validators = [DataRequired()])
@@ -34,12 +34,12 @@ class VerificationForm(FlaskForm):
 
     def validate_email(self, email):
         global email_check
-        if email_check == 'Current UCSB Student or UCSB Faculty':
+        if email_check == 'Gaucho' or email_check == 'Professor' or email_check == 'Physics Staff':
             if ('ucsb.edu' or 'umail.ucsb.edu') not in email.data:
                 raise ValidationError('For UCSB Students and Faculty please use a valid ucsb email.')
         else:
             if ('ucsb.edu' or 'umail.ucsb.edu') in email.data:
-                raise ValidationError('For UCSB Students and Faculty please select "Current UCSB Student or UCSB Faculty".')
+                raise ValidationError('For UCSB Students and Faculty please select either "Gaucho", "Professor", or "Physics Staff".')
         
         user_email = Verify.query.filter_by(email = email.data).first()
         if user_email:

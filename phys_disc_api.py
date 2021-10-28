@@ -3,7 +3,7 @@ import requests, os, json
 
 from requests.api import delete, get
 
-base_url = 'http://127.0.0.1:5000/api/secure/emoji'
+base_url = 'http://127.0.0.1:5000/api/secure/verify'
 secret_token = os.environ.get('SECRET_KEY')
 header_url = {'Authorization' : f'Bearer {secret_token}'}
 
@@ -29,20 +29,19 @@ class VerifyUser():
         
         self.status = user_status.status_code
         self.id = user_info['id']
-        self.type_student = user_info['type_student']
+        self.type_user = user_info['type_user']
         self.email = user_info['email']
         self.full_name = user_info['full_name']
         self.username = user_info['username']
         self.isreciept = user_info['isreciept']
-        self.isgaucho = user_info['isgaucho']
+        self.isrole = user_info['isrole']
         self.date_created = user_info['date_created']
         return
     
-    def update_gaucho(self):
+    def update_role(self):
         json_package = {
-            'action' : 'update_gaucho',
-            'username': self.username,
-            'isgaucho' : True
+            'action' : 'update_role',
+            'username': self.username
         }
         update_user = post_request(json_package)
         self.status = update_user.status_code
@@ -73,10 +72,15 @@ class VerifyUser():
             'action' : 'update_type',
             'username' : self.username
         }
-        if type_student == 'gaucho':
-            json_package['type'] = 'Current UCSB Student or UCSB Faculty'
+        if type_student in ['Gaucho', 'Professor', 'Physics Staff', 'Alumni' 'Visitor']:
+            json_package['type'] = type_student
         else:
-            json_package['type'] = 'Prospective UCSB Student'
+            raise ValueError('Not a Valid Role')
+
+        # if type_student == 'gaucho':
+        #     json_package['type'] = 'Current UCSB Student or UCSB Faculty'
+        # else:
+        #     json_package['type'] = 'Prospective UCSB Student'
         update_user = post_request(json_package)
         self.status = update_user.status_code
         return update_user
@@ -349,11 +353,13 @@ def on_submit(user): # user variable should contain the information that was sub
     VerifyUser(user['username']).update_gaucho()
 
 if __name__ == '__main__':
-    # status = VerifyUser('PhysicsLegends#6877').update_gaucho()
-    # print(status)
-    # status = TicketEntry(1).update_issue('this did not work')
-    # status = TicketEntry(id = 1).is_resolved(True)
-    # status = RemovalEntry(username='test#1234')
-    # print(status.isreciept)
-    status = EmojiEntry(id = 1)
-    print(status.emoji_image)
+    status = VerifyUser()
+    # status.update_type('Gaucho')
+    # status.update_role()
+    # # print(status)
+    # # status = TicketEntry(1).update_issue('this did not work')
+    # # status = TicketEntry(id = 1).is_resolved(True)
+    # # status = RemovalEntry(username='test#1234')
+    # # print(status.isreciept)
+    # status = EmojiEntry(id = 1)
+    print(status)

@@ -22,7 +22,8 @@ form {
     /* margin-top: 25px;
     padding: 50px; */
     background: #2f3136;
-    text-align: center;
+    text-align: left;
+    padding: 50px;
     border-radius: 50px;
     margin: 5%;
 }

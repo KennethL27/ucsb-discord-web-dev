@@ -5,23 +5,25 @@ import json
 
 class Verify(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    type_student = db.Column(db.Text, nullable = False)
+    type_user = db.Column(db.Text, nullable = False)
     email = db.Column(db.String(120), nullable = False)
     full_name = db.Column(db.String(40), nullable = False)
     username = db.Column(db.String(32), nullable = False)
     isreciept = db.Column(db.Boolean(), nullable = False, default = False)
-    isgaucho = db.Column(db.Boolean(), nullable = False, default = False)
+    # isgaucho = db.Column(db.Boolean(), nullable = False, default = False)
+    isrole = db.Column(db.Text, nullable = True, default = None)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     def __repr__(self):
         data = {
             'id' : self.id,
-            'type_student' : self.type_student,
+            'type_user' : self.type_user,
             'email' : self.email,
             'full_name' : self.full_name,
             'username' : self.username,
             'isreciept' : self.isreciept,
-            'isgaucho' : self.isgaucho,
+            # 'isgaucho' : self.isgaucho,
+            'isrole' : self.isrole,
             'date_created' : str(self.date_created)
             }
         return json.dumps(data)
