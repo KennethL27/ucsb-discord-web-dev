@@ -1,0 +1,11 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='error_pages/404.css') }}">
+
+<div class="error_404">
+<h1>ERROR 404</h1>
+<p>Don't worry you didn't break physics! Just click a link in the menu above.</p>
+</div>
+
+{% endblock content%}

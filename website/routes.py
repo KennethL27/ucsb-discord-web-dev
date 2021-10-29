@@ -144,3 +144,7 @@ def admin_home():
 def get_emoji_image(id):
     emoji_image = Emoji.query.filter_by(id=id).first()
     return Response(emoji_image.emoji_image, mimetype=emoji_image.emoji_image_type)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error_pages/404.html', title = 'ERROR'), 404

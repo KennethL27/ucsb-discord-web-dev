@@ -13,8 +13,10 @@ class Verify_API(Resource):
             if not user:
                 return {'status' : 'error: username not found'}, 404
             return str(user), 200 
-        elif action == 'id_len':
-            return len(Verify.query.all()), 200
+        elif action == 'unverified':
+            unverified_list = Verify.query.filter_by(isrole = None)
+            unverified_ids = [id.id for id in unverified_list]
+            return {'unverified_ids' : unverified_ids}, 200
         elif action == 'id':
             user = Verify.query.filter_by(id = values['id']).first()
             return str(user), 200

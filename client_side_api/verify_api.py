@@ -4,26 +4,49 @@ import json
 url = base_url + 'verify'
 
 class VerifyUser():
-    def __init__(self, username = None):
+    def __init__(self, username = None, id : int= None, unverified : bool = False):
         json_package = {
-            'action' : 'username',
+            'action' : None,
             'username' : username
         }
-        user_status = get_request(json_package, url)
-        if user_status.status_code == 404:
-            raise ValueError('User Not Found')
-        user_info = json.loads(user_status.json())
-        
-        self.status = user_status.status_code
-        self.id = user_info['id']
-        self.type_user = user_info['type_user']
-        self.email = user_info['email']
-        self.full_name = user_info['full_name']
-        self.username = user_info['username']
-        self.isreciept = user_info['isreciept']
-        self.isrole = user_info['isrole']
-        self.date_created = user_info['date_created']
-        return
+        if username:
+            json_package['action'] = 'username'
+            user_status = get_request(json_package, url)
+            if user_status.status_code == 404:
+                raise ValueError('User Not Found')
+            user_info = json.loads(user_status.json())
+            
+            self.status = user_status.status_code
+            self.id = user_info['id']
+            self.type_user = user_info['type_user']
+            self.email = user_info['email']
+            self.full_name = user_info['full_name']
+            self.username = user_info['username']
+            self.isreciept = user_info['isreciept']
+            self.isrole = user_info['isrole']
+            self.date_created = user_info['date_created']
+
+        if unverified:
+            json_package['action'] = 'unverified'
+            response = get_request(json_package, url).json()
+            self.ids = response['unverified_ids']
+            # self.status = response.status_code
+
+        if id:
+            json_package['action'] = 'id'
+            json_package['id'] = id
+            response = get_request(json_package, url)
+            if response.status_code == 404:
+                raise ValueError('ID Not Found')
+            user_info = json.loads(response.json())
+            self.id = user_info['id']
+            self.type_user = user_info['type_user']
+            self.email = user_info['email']
+            self.full_name = user_info['full_name']
+            self.username = user_info['username']
+            self.isreciept = user_info['isreciept']
+            self.isrole = user_info['isrole']
+            self.date_created = user_info['date_created']
     
     def update_role(self):
         json_package = {
